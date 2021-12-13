@@ -42,7 +42,9 @@ public class StudentRegistrationFormTest {
         $x("//label[contains(text(),'Music')]").click();
         $x("//label[contains(text(),'Sports')]").click();
 
-        $("#uploadPicture").uploadFile(new File("src/test/resources/simple.txt"));
+        $("#submit").scrollTo();
+
+        $("#uploadPicture").uploadFromClasspath("simple.txt");
 
         $("#currentAddress").setValue("London is a capital of Great Britain");
 
