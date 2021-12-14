@@ -5,8 +5,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -14,8 +12,8 @@ public class StudentRegistrationFormTest {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.startMaximized = true;
         Configuration.holdBrowserOpen = false;
+        Configuration.headless = false;
     }
 
     @Test
