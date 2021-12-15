@@ -7,7 +7,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.*;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -60,5 +61,11 @@ public class StudentRegistrationFormTest {
         $$(".table td:last-child").shouldHave(exactTexts("Vitaliy Ismagilov", "ism@gmail.com",
                 "Male", "3777448888", "29 April,1984", "Maths, English", "Music, Sports", "simple.txt",
                         "London is a capital of Great Britain", "Haryana Panipat"));
+
+        // Second version of assert
+//        $(".table").shouldHave(text("Vitaliy Ismagilov"), text("ism@gmail.com"), text("Male"),
+//                text("3777448888"), text("29 April,1984"), text("Maths, English"), text("Music, Sports"),
+//                text("simple.txt"), text("London is a capital of Great Britain"), text("Haryana Panipat"));
+
     }
 }
