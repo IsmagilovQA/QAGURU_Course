@@ -1,14 +1,11 @@
 package domain.com.homework_2;
 
-import com.codeborne.selenide.CollectionCondition;
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.CollectionCondition.*;
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.CollectionCondition.exactTexts;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -38,13 +35,13 @@ public class StudentRegistrationFormTest {
         $(".react-datepicker__year-select").selectOption("1984");
         $(byText("29")).click();
 
+        //executeJavaScript(String.format("$('[id=\"%s\"]').val('%s')", "dateOfBirthInput", "29 Apr 1984"));
+
         $("#subjectsInput").hover().setValue("Ma").pressEnter();
         $("#subjectsInput").setValue("En").pressEnter();
 
         $(byText("Music")).click();
         $(byText("Sports")).click();
-
-        $("#submit").scrollTo();
 
         $("#uploadPicture").uploadFromClasspath("simple.txt");
 
@@ -53,7 +50,7 @@ public class StudentRegistrationFormTest {
         $("#react-select-3-input").setValue("Ha").pressEnter();
         $("#react-select-4-input").setValue("Pa").pressEnter();
 
-        $("#submit").click();
+        $("#submit").scrollIntoView(true).click();
 
         // Assert
         $("#example-modal-sizes-title-lg").shouldBe(visible);
