@@ -4,11 +4,14 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static com.codeborne.selenide.CollectionCondition.exactTexts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static java.lang.String.valueOf;
 
 public class StudentRegistrationFormTest {
 
@@ -61,7 +64,19 @@ public class StudentRegistrationFormTest {
 
         $$(".table td:last-child").shouldHave(exactTexts("Vitaliy Ismagilov", "ism@gmail.com",
                 "Male", "3777448888", "29 April,1984", "Maths, English", "Music, Sports", "simple.txt",
-                        "London is a capital of Great Britain", "Haryana Panipat"));
+                "London is a capital of Great Britain", "Haryana Panipat"));
+    }
 
+    @Test
+    void notAbleToSubmitEmptyForm() {
+        $("#submit").scrollIntoView(true).click();
+        $("#userForm").shouldBe(visible);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"#firstName", "#lastName", "#gender-radio-1", "#gender-radio-2", "#gender-radio-3", "#userNumber"})
+    void requiredFieldsTest(String locator) {
+        $("#submit").scrollIntoView(true).click();
+        $(locator).shouldHave(attribute("required", "true"));
     }
 }
