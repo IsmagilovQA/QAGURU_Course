@@ -1,10 +1,12 @@
 package domain.com.homework_3;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -62,13 +64,24 @@ public class Homework3Tests {
 
     // This option doesn't work. Block A is moved, but not released to target block B.
     @Test
-    void dragAndDropSecondOption() {
+    void dragAndDropSecondOptionWithSelenide() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
-        $$("#columns > div").first().shouldHave(text("A"));
         WebElement a = $("#column-a");
         WebElement b = $("#column-b");
+        $$("#columns > div").first().shouldHave(text("A"));
         Selenide.actions().dragAndDrop(a, b).perform();
         $$("#columns > div").first().shouldHave(text("B"));
+    }
 
+    // This option doesn't work as well
+    @Test
+    void dragAndDropSelenium() {
+        open("https://the-internet.herokuapp.com/drag_and_drop");
+        WebElement a = $("#column-a");
+        WebElement b = $("#column-b");
+        $$("#columns > div").first().shouldHave(text("A"));
+        new Actions(WebDriverRunner.getWebDriver()).clickAndHold(a).moveToElement(b).release().perform();
+        $$("#columns > div").first().shouldHave(text("B"));
+        sleep(5000);
     }
 }
