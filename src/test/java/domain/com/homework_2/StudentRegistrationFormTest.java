@@ -11,7 +11,6 @@ import static com.codeborne.selenide.CollectionCondition.exactTexts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static java.lang.String.valueOf;
 
 public class StudentRegistrationFormTest {
 
