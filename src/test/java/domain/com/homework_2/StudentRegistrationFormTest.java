@@ -14,15 +14,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class StudentRegistrationFormTest {
 
-    @BeforeAll
-    static void beforeAll() {
+    @BeforeEach
+    void setup() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.holdBrowserOpen = false;
         Configuration.headless = false;
-    }
-
-    @BeforeEach
-    void setup() {
         open("/automation-practice-form");
     }
 
