@@ -1,12 +1,10 @@
 package domain.com.homework_3;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import static com.codeborne.selenide.Condition.text;
@@ -29,11 +27,11 @@ public class Homework3Tests {
 
 
     /**
-     *2. Разработайте следующий автотест:
-     *  - Откройте страницу Selenide в Github
-     *  - Перейдите в раздел Wiki проекта
-     *  - Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
-     *  - Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
+     * 2. Разработайте следующий автотест:
+     * - Откройте страницу Selenide в Github
+     * - Перейдите в раздел Wiki проекта
+     * - Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
+     * - Откройте страницу SoftAssertions, проверьте что внутри есть пример кода для JUnit5
      */
 
     @Test
@@ -49,9 +47,9 @@ public class Homework3Tests {
 
     /**
      * 3. (опциональное) Запрограммируйте Drag&Drop с помощью Selenide.actions()
-     *  - Откройте https://the-internet.herokuapp.com/drag_and_drop
-     *  - Перенесите прямоугольник А на место В
-     *  - Проверьте, что прямоугольники действительно поменялись
+     * - Откройте https://the-internet.herokuapp.com/drag_and_drop
+     * - Перенесите прямоугольник А на место В
+     * - Проверьте, что прямоугольники действительно поменялись
      */
 
     @Test
@@ -83,6 +81,5 @@ public class Homework3Tests {
         $$("#columns > div").first().shouldHave(text("A"));
         new Actions(WebDriverRunner.getWebDriver()).clickAndHold(a).moveToElement(b).release().perform();
         $$("#columns > div").first().shouldHave(text("B"));
-        sleep(5000);
     }
 }
