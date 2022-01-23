@@ -5,10 +5,11 @@ import com.codeborne.selenide.SelenideElement;
 import domain.com.homework_2.components.Calendar;
 import domain.com.homework_2.enums.*;
 
-import static com.codeborne.selenide.CollectionCondition.exactTexts;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.attribute;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
 
@@ -98,10 +99,10 @@ public class RegistrationPage {
     }
 
     public void registrationFormShouldBe(Condition condition) {
-       registrationForm.shouldBe(condition);
+        registrationForm.shouldBe(condition);
     }
 
-    public void shouldHaveRequiredAttr (String element) {
+    public void shouldHaveRequiredAttr(String element) {
         $(element).shouldHave(attribute("required", "true"));
     }
 
