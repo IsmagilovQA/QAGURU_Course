@@ -22,20 +22,29 @@ repositories {
     mavenCentral()
 }
 
-def selenideVersion = "6.1.1",
+def selenideVersion = "6.1.2",
     junitVersion = "5.8.2",
-    slf4jVersion = "1.7.32",
-    junitParam = "5.8.2",
-    javaFaker = "1.0.2",
-    allureSelenide = '2.17.2'
+    slf4jVersion = "1.7.33",
+    junitParamVersion = "5.8.2",
+    javaFakerVersion = "1.0.2",
+    allureSelenideVersion = '2.17.2',
+    assertJVersion = '3.22.0',
+    pdfTestVersion = '1.7.0',
+    xlsTestVersion = '1.4.3',
+    openCsvVersion = '5.5.2'
+
 
 dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
-            "org.junit.jupiter:junit-jupiter-params:$junitParam",
-            "com.github.javafaker:javafaker:$javaFaker",
-            "io.qameta.allure:allure-selenide:$allureSelenide"
+            "org.junit.jupiter:junit-jupiter-params:$junitParamVersion",
+            "com.github.javafaker:javafaker:$javaFakerVersion",
+            "io.qameta.allure:allure-selenide:$allureSelenideVersion",
+            "org.assertj:assertj-core:$assertJVersion",
+            "com.codeborne:pdf-test:$pdfTestVersion",
+            "com.codeborne:xls-test:$xlsTestVersion",
+            "com.opencsv:opencsv:$openCsvVersion"
     )
     testRuntimeOnly(
             "org.slf4j:slf4j-simple:$slf4jVersion",
