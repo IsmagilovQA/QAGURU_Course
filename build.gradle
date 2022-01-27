@@ -3,21 +3,6 @@ plugins {
     id "io.qameta.allure" version "2.9.6"
 }
 
-allure {
-    report {
-        version.set("2.17.2")
-    }
-    adapter {
-        autoconfigure.set(true)
-        aspectjWeaver.set(true)
-        frameworks {
-            junit5 {
-                adapterVersion.set("2.17.2")
-            }
-        }
-    }
-}
-
 repositories {
     mavenCentral()
 }
@@ -27,12 +12,27 @@ def selenideVersion = "6.1.2",
     slf4jVersion = "1.7.33",
     junitParamVersion = "5.8.2",
     javaFakerVersion = "1.0.2",
+    allureVersion = '2.17.2',
     allureSelenideVersion = '2.17.2',
     assertJVersion = '3.22.0',
     pdfTestVersion = '1.7.0',
     xlsTestVersion = '1.4.3',
     openCsvVersion = '5.5.2'
 
+allure {
+    report {
+        version.set(allureVersion)
+    }
+    adapter {
+        autoconfigure.set(true)
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set(allureVersion)
+            }
+        }
+    }
+}
 
 dependencies {
     testImplementation(
@@ -67,7 +67,7 @@ tasks.withType(Test) {
 }
 
 // Run all tests methods inside one specific class ->
-// ./gradlew test --tests PositiveTests OR gradle test --tests PositiveTests
+// ./gradlew clean test --tests PositiveTests OR gradle clean test --tests PositiveTests
 
 // Run all test classes in one specific package ->
-// gradle test --tests "domain.com.homework_7.lesson.*" OR ./gradlew test --tests "domain.com.homework_7.lesson.*"
+// gradle clean test --tests "domain.com.homework_7.lesson.*" OR ./gradlew clean test --tests "domain.com.homework_7.lesson.*"
