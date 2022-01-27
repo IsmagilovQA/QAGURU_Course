@@ -1,6 +1,7 @@
 package domain.com.homework_2;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import domain.com.homework_2.helpers.Attach;
 import domain.com.homework_2.pages.RegistrationPage;
@@ -40,4 +41,5 @@ public class BaseTest {
         Attach.addVideo();
     }
 }
+
 
