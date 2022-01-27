@@ -71,3 +71,6 @@ tasks.withType(Test) {
 
 // Run all test classes in one specific package ->
 // gradle clean test --tests "domain.com.homework_7.lesson.*" OR ./gradlew clean test --tests "domain.com.homework_7.lesson.*"
+
+// Run homework
+// gradle clean test --tests StudentRegistrationFormTest
