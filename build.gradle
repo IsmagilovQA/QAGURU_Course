@@ -56,6 +56,18 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
-test {
+tasks.withType(Test) {
     useJUnitPlatform()
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED"
+        showStandardStreams = true
+        exceptionFormat = "short"
+    }
+    test.outputs.upToDateWhen { false }
 }
+
+// Run all tests methods inside one specific class ->
+// ./gradlew test --tests PositiveTests OR gradle test --tests PositiveTests
+
+// Run all test classes in one specific package ->
+// gradle test --tests "domain.com.homework_7.lesson.*" OR ./gradlew test --tests "domain.com.homework_7.lesson.*"
