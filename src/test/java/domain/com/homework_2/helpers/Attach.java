@@ -1,6 +1,7 @@
 package domain.com.homework_2.helpers;
 
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -20,9 +21,9 @@ public class Attach {
         return message;
     }
 
-    @Attachment(value = "Page source", type = "text/plain")
+    @Attachment(value = "Page source", type = "text/html", fileExtension = "html")
     public static byte[] pageSource() {
-        return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
+        return WebDriverRunner.source().getBytes(StandardCharsets.UTF_8);
     }
 
     @Attachment(value = "{attachName}", type = "image/png")
