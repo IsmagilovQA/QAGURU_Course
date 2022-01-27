@@ -66,6 +66,8 @@ tasks.withType(Test) {
     test.outputs.upToDateWhen { false }
 }
 
+// GENERAL INFO:
+
 // Run all tests methods inside one specific class ->
 // ./gradlew clean test --tests PositiveTests OR gradle clean test --tests PositiveTests
 
@@ -74,3 +76,6 @@ tasks.withType(Test) {
 
 // Run homework
 // gradle clean test --tests StudentRegistrationFormTest
+
+// Link to Jenkins: https://jenkins.autotests.cloud/
+// Link to Selenoid: https://selenoid.autotests.cloud/#/
