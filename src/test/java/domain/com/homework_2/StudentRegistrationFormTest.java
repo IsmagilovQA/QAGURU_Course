@@ -3,6 +3,7 @@ package domain.com.homework_2;
 import com.github.javafaker.Faker;
 import domain.com.homework_2.enums.*;
 import domain.com.homework_2.pages.RegistrationPage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -19,6 +20,7 @@ public class StudentRegistrationFormTest extends BaseTest {
     String phoneNumber = faker.number().digits(10);
 
     @Test
+    @DisplayName("Form should be submitted with all fields")
     void formShouldBeSubmittedAndVerified() {
         new RegistrationPage().openPage()
                 .typeFirstName(firstName)
@@ -42,12 +44,13 @@ public class StudentRegistrationFormTest extends BaseTest {
     }
 
     @Test
+    @DisplayName("Not able to submit empty form")
     void notAbleToSubmitEmptyForm() {
         registrationPage.openPage().clickSubmit();
         registrationPage.registrationFormShouldBe(visible);
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "Verify required fields on form")
     @ValueSource(strings = {"#firstName", "#lastName", "#gender-radio-1", "#gender-radio-2",
             "#gender-radio-3", "#userNumber"})
     void requiredFieldsTest(String element) {

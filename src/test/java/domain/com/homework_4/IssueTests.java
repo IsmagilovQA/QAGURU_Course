@@ -1,6 +1,5 @@
 package domain.com.homework_4;
 
-import com.beust.jcommander.Parameter;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
