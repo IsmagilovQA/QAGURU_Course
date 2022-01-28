@@ -21,8 +21,8 @@ public class BaseTest {
     static void setup() {
         Configuration.baseUrl = "https://demoqa.com";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserSize = System.getProperty("browserSize");
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserSize = System.getProperty("browserSize", "");
         Configuration.holdBrowserOpen = false;
         Configuration.headless = false;
 
