@@ -21,7 +21,8 @@ public class BaseTest {
     static void setup() {
         Configuration.baseUrl = "https://demoqa.com";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        //Configuration.browserSize = "1920x1080";
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserSize = System.getProperty("browserSize");
         Configuration.holdBrowserOpen = false;
         Configuration.headless = false;
 
@@ -38,7 +39,7 @@ public class BaseTest {
 
     @AfterEach
     void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
+        Attach.screenshotAs("Last screenshot with browser: " + System.getProperty("browser"));
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
