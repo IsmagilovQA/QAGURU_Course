@@ -58,6 +58,14 @@ tasks.withType(JavaCompile) {
 
 tasks.withType(Test) {
     useJUnitPlatform()
+
+    systemProperties(System.getProperties())
+
+    // we can set globally some properties that can't be changed even in console using -Dbrowser. Not a good approach:
+    // systemProperty("browser", "safari")
+    // By default will run on stage env in case user doesn't specify any other options in console using -Denvironment:
+    // setProperty("environment", System.getProperty("environment", "stage")) // preprod, prod, stage
+
     testLogging {
         events "PASSED", "FAILED", "SKIPPED"
         showStandardStreams = true
@@ -65,6 +73,13 @@ tasks.withType(Test) {
     }
     test.outputs.upToDateWhen { false }
 }
+
+task properties_tests(type:Test) {
+    useJUnitPlatform {
+        includeTags "properties"
+    }
+}
+
 
 // GENERAL INFO:
 
@@ -79,3 +94,9 @@ tasks.withType(Test) {
 
 // Link to Jenkins: https://jenkins.autotests.cloud/
 // Link to Selenoid: https://selenoid.autotests.cloud/#/
+
+// Run specific task prepared in build.gradle:
+// ./gradlew clean properties_tests
+
+// Run with parameters:
+// ./gradlew clean properties_tests -Dbrowser=chrome
