@@ -26,7 +26,10 @@ public class BaseTest {
         Configuration.headless = false;
 
         // Remote run using Selenoid configuration:
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        String login = System.getProperty("login");
+        String password = System.getProperty("password");
+        Configuration.remote = "https://"+ login +":"+ password +"@selenoid.autotests.cloud/wd/hub";
+
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
