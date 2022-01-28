@@ -39,7 +39,7 @@ public class BaseTest {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-        Selenide.closeWebDriver();
+        Selenide.closeWebDriver(); // this will increase test run, because of open/close webDriver for each test
     }
 }
 
