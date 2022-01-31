@@ -8,6 +8,7 @@ public class TestClassForGit {
 
     /**
      * Here can be some comments.
+     *  Added some fixes after Change request from andrey@zavrichko.dev
      */
 
     @Test
