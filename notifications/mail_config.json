@@ -6,10 +6,10 @@
       "replyTo": ""
     },
     "base": {
-      "lang": "ru",
+      "lang": "en",
       "messenger": "email",
       "allureFolder": "./allure-report/",
-      "mattermostUrl": "",
+      "allureLinkPath": "",
       "chart": true,
       "chartName": "",
       "project": ""
