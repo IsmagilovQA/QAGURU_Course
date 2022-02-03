@@ -8,7 +8,7 @@
     "base": {
       "lang": "en",
       "messenger": "email",
-      "allureFolder": "./allure-report/",
+      "allureFolder": "allure-report/",
       "allureLinkPath": "allure",
       "chart": true,
       "chartName": "",
