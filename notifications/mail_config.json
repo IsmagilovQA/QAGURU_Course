@@ -23,6 +23,9 @@
       "from": "noreplyallurereport@gmail.com",
       "recipient": "ismagilov.vel@gmail.com"
     },
+    "mattermost": {
+      "url": ""
+    },
     "proxy": {
       "host": "",
       "port": 0,
