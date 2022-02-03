@@ -9,7 +9,7 @@
       "lang": "en",
       "messenger": "email",
       "allureFolder": "./allure-report/",
-      "allureLinkPath": "",
+      "allureLinkPath": "allure",
       "chart": true,
       "chartName": "",
       "project": ""
@@ -20,7 +20,7 @@
       "username": "ismagilov.vel@gmail.com",
       "password": "password_here",
       "enableSSL": true,
-      "from": "noreplyallurereport@gmail.com",
+      "from": "ismagilov.vel@gmail.com",
       "recipient": "ismagilov.vel@gmail.com"
     },
     "mattermost": {
