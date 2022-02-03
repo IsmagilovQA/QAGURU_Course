@@ -1,0 +1,41 @@
+{
+  "app": {
+    "bot": {
+      "token": "",
+      "chat": "",
+      "replyTo": ""
+    },
+    "base": {
+      "lang": "ru",
+      "messenger": "email",
+      "allureFolder": "./allure-report/",
+      "mattermostUrl": "",
+      "chart": true,
+      "chartName": "",
+      "project": ""
+    },
+    "mail": {
+      "host": "smtp.gmail.com",
+      "port": "465",
+      "username": "ismagilov.vel@gmail.com",
+      "password": "qzwxecrvtb123456789",
+      "enableSSL": true,
+      "from": "noreplyallurereport@gmail.com",
+      "recipient": "ismagilov.vel@gmail.com"
+    },
+    "proxy": {
+      "host": "",
+      "port": 0,
+      "username": "",
+      "password": ""
+    },
+    "skype": {
+      "appId": "",
+      "appSecret": "",
+      "serviceUrl": "",
+      "conversationId": "",
+      "botId": "",
+      "botName": ""
+    }
+  }
+}
